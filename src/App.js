@@ -20,6 +20,7 @@ class App extends Component {
 
     this.state = {
       districts: [],
+      civ: {},
     };
   }
 
@@ -38,12 +39,13 @@ class App extends Component {
     }
 
     let districts = await tree.getDistricts(location.lng, location.lat);
+    let civ = await tree.mimicGoogleCivicsAPI(location.lng, location.lat);
 
-    this.setState({districts});
+    this.setState({civ, districts});
   }
 
   render() {
-    const {districts} = this.state;
+    const {civ, districts} = this.state;
 
     let location = _browserLocation(this.props);
     if (!location.lng || !location.lat) return (<div>Loading location from browser...</div>);
@@ -54,6 +56,9 @@ class App extends Component {
         <br />
         <br />
         Districts from your location: {districts.map((d, i) => (<District key={i} dist={d} />))}
+        <br />
+        <br />
+        mimiced google civics: <pre>{JSON.stringify(civ, null, 2)}</pre>
       </div>
     );
   }
