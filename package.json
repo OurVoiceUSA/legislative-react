@@ -11,7 +11,7 @@
     "eject": "react-scripts eject"
   },
   "author": "Our Voice USA",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "nodemonConfig": {
     "ignore": [
       "districts"
