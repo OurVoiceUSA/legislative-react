@@ -57,10 +57,10 @@ class App extends Component {
 
     return (
       <div>
-        { /* Location from your browser: {JSON.stringify(location)} */ } <Location location={location}></Location>
+         <Location location={location}></Location>
         <br />
         <br />
-        {/*Districts from your location: {districts.map((d, i) => (<District key={i} dist={d} />))}*/} x<Districts dist={districts}></Districts> 
+        <Districts dist={districts}></Districts> 
         <br />
         <br />
         mimiced google civics: <pre>{JSON.stringify(civ.officials, null, 2)}</pre>
@@ -69,15 +69,7 @@ class App extends Component {
   }
 }
 
-/*
-const District = props => {
-  return (
-    <div>
-      You are located in {props.dist.state} {props.dist.type} {props.dist.name}
-    </div>
-  );
-}
-*/
+
 
 export default geolocated({
   positionOptions: {
