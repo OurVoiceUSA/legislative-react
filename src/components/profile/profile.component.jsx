@@ -1,8 +1,8 @@
 import React from 'react'
-import LRTree from 'legislative-rtree';
+/*import LRTree from 'legislative-rtree';
 import {geolocated} from 'react-geolocated';
-
-
+*/
+/*
 function _browserLocation(props) {
     if (!props.isGeolocationAvailable || !props.isGeolocationEnabled)
       return {};
@@ -14,6 +14,16 @@ function _browserLocation(props) {
     return {};
   }
 
+*/
+const Profile = ( {...otherProps} ) => (
+  <div className="group">
+  Location from your browser: {
+    JSON.stringify(otherProps.location)
+    }
+  </div>
+)
+
+  /*
 class Profile extends React.Component {
 
     constructor(props) {
@@ -56,7 +66,7 @@ class Profile extends React.Component {
           Location from your browser: {JSON.stringify(location)}
           <br />
           <br />
-     {/* Districts from your location: {districts.map((d, i) => (<District key={i} dist={d} />))} */}
+     {/* Districts from your location: {districts.map((d, i) => (<District key={i} dist={d} />))} }
           <br />
           <br />
           mimiced google civics: <pre>{JSON.stringify(civ.officials, null, 2)}</pre>
@@ -66,3 +76,6 @@ class Profile extends React.Component {
   }
 
   export default Profile
+  */
+
+  export default Profile;

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import LRTree from 'legislative-rtree';
 import {geolocated} from 'react-geolocated';
 
-import Profile from './components/profile/profile.component'
+import Location from './components/location-component/location.component'
+import Districts from './components/district/districts.component'
 
 function _browserLocation(props) {
   if (!props.isGeolocationAvailable || !props.isGeolocationEnabled)
@@ -15,15 +16,8 @@ function _browserLocation(props) {
   return {};
 }
 
-class App extends Component {
-  render(){
-    return ( <div>
-      <Profile/>
-    </div>
-    )
-  }
-}
-/*
+
+
 class App extends Component {
 
   constructor(props) {
@@ -47,7 +41,7 @@ class App extends Component {
     if (!location.lng) {
       setTimeout(() => this._loadData(), 500);
       return;
-    }
+    } 
 
     let districts = await tree.getDistricts(location.lng, location.lat);
     let civ = await tree.mimicGoogleCivicsAPI(location.lng, location.lat);
@@ -63,10 +57,10 @@ class App extends Component {
 
     return (
       <div>
-        Location from your browser: {JSON.stringify(location)}
+        { /* Location from your browser: {JSON.stringify(location)} */ } <Location location={location}></Location>
         <br />
         <br />
-        Districts from your location: {districts.map((d, i) => (<District key={i} dist={d} />))}
+        {/*Districts from your location: {districts.map((d, i) => (<District key={i} dist={d} />))}*/} x<Districts dist={districts}></Districts> 
         <br />
         <br />
         mimiced google civics: <pre>{JSON.stringify(civ.officials, null, 2)}</pre>
@@ -74,7 +68,8 @@ class App extends Component {
     );
   }
 }
-*/
+
+/*
 const District = props => {
   return (
     <div>
@@ -82,6 +77,7 @@ const District = props => {
     </div>
   );
 }
+*/
 
 export default geolocated({
   positionOptions: {
