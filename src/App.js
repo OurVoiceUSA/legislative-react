@@ -4,6 +4,7 @@ import {geolocated} from 'react-geolocated';
 
 import Location from './components/location-component/location.component'
 import Districts from './components/district/districts.component'
+import Profile from './components/profile/profile.component'
 
 function _browserLocation(props) {
   if (!props.isGeolocationAvailable || !props.isGeolocationEnabled)
@@ -51,19 +52,19 @@ class App extends Component {
 
   render() {
     const {civ, districts} = this.state;
-
+    let properties = ["name", "address", "line1", "line2", "line3", "zip", "phone", "phones", "photoUrl", "city", "party", "urls", "type", "id"]
     let location = _browserLocation(this.props);
     if (!location.lng || !location.lat) return (<div>Loading location from browser...</div>);
 
     return (
       <div>
-         <Location location={location}></Location>
+         <Location location={location}/>
         <br />
         <br />
-        <Districts dist={districts}></Districts> 
+        <Districts dist={districts}/> 
         <br />
         <br />
-        mimiced google civics: <pre>{JSON.stringify(civ.officials, null, 2)}</pre>
+        <Profile official={civ} propElem={properties} />
       </div>
     );
   }
