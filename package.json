@@ -19,10 +19,10 @@
   },
   "dependencies": {
     "legislative-rtree": "github:OurVoiceUSA/legislative-rtree",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-geolocated": "^2.5.1",
-    "react-scripts": "3.1.1"
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-geolocated": "^3.0.1",
+    "react-scripts": "3.4.0"
   },
   "eslintConfig": {
     "extends": "react-app"
